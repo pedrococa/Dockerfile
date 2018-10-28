@@ -7,17 +7,14 @@ RUN apt-get update && apt-get install -y postgresql postgresql-client postgresql
 # Run the rest of the commands as the ``postgres`` user created by the ``postgres-10`` package when it was ``apt-get installed``
 USER postgres
 
-# Create a PostgreSQL role named ``docker`` with ``docker`` as the password and
-# then create a database `docker` owned by the ``docker`` role.
-# Note: here we use ``&&\`` to run commands one after the other - the ``\``
-#       allows the RUN command to span multiple lines.
-RUN    /etc/init.d/postgresql start &&\
-    psql --command "CREATE USER docker WITH SUPERUSER PASSWORD 'docker';" &&\
-    createdb -O docker docker
+# Start the PostgreSQL server and create a PostgreSQL role (superuser) and then create a database `demo` owned by the ``superuser`` role.
+RUN /etc/init.d/postgresql start &&\
+    psql --command "CREATE USER superuser WITH SUPERUSER PASSWORD 'superuser';" &&\
+    createdb -O superuser demo
 
 # Adjust PostgreSQL configuration so that remote connections to the
 # database are possible.
-RUN echo "host all  all    0.0.0.0/0  md5" >> /etc/postgresql/10/main/pg_hba.conf
+RUN echo "host all  all    0.0.0.0/0  password" >> /etc/postgresql/10/main/pg_hba.conf
 
 # And add ``listen_addresses`` to ``/etc/postgresql/10/main/postgresql.conf``
 RUN echo "listen_addresses='*'" >> /etc/postgresql/10/main/postgresql.conf
