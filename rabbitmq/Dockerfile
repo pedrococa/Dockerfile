@@ -7,4 +7,5 @@ RUN apt-get update && apt-get install -y rabbitmq-server python3-amqp python3-pi
 RUN rabbitmq-plugins enable rabbitmq_management
 
 # Expose the AMQP port (5672) and the HTTP API port (15672)
-EXPOSE 5672/tcp 15672/tcp
+EXPOSE 5672
+EXPOSE 15672
