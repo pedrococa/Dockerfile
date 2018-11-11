@@ -3,11 +3,12 @@
 ### Build the image in the same directory
 
 ``` 
-docker build .
+docker build -t rabbitmq:latest .
 ``` 
 
 ### Running the container
 
 ``` 
-docker run -d -p 5672:5672 -p 15672:15672
+docker network create app-tier --driver bridge
+docker run -d -p 5672:5672 -p 15672:15672 --network app-tier rabbitmq:latest 
 ``` 
