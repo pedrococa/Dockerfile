@@ -8,6 +8,8 @@ docker build -t rabbitmq:latest .
 
 ### Running the container
 
+Use the start.sh init script of this repo or deal directly with docker:
+
 ``` 
 docker network create app-tier --driver bridge
 docker run -d -p 5672:5672 -p 15672:15672 --network app-tier rabbitmq:latest 
