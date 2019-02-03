@@ -1,0 +1,59 @@
+# LDIF sample content
+
+version: 1
+
+# Entry for ou=Groups,dc=mydemo,dc=run
+dn: ou=Groups,dc=mydemo,dc=run
+objectclass: organizationalUnit
+objectclass: top
+ou: Groups
+
+# Entry for admins: cn=admins,ou=Groups,dc=mydemo,dc=run
+dn: cn=admins,ou=Groups,dc=mydemo,dc=run
+cn: admins
+gidnumber: 501
+memberuid: jlynch
+objectclass: posixGroup
+objectclass: top
+
+# Entry for devs: cn=devs,ou=Groups,dc=mydemo,dc=run
+dn: cn=devs,ou=Groups,dc=mydemo,dc=run
+cn: devs
+gidnumber: 500
+memberuid: juser
+objectclass: posixGroup
+objectclass: top
+
+# Entry for users: ou=Users,dc=mydemo,dc=run
+dn: ou=Users,dc=mydemo,dc=run
+objectclass: organizationalUnit
+objectclass: top
+ou: Users
+
+# Entry 7: cn=Morty Smith,ou=Users,dc=mydemo,dc=run
+dn: cn=Morty Smith ,ou=Users,dc=mydemo,dc=run
+cn: Morty Smith
+gidnumber: 501
+givenname: Morty
+homedirectory: /home/users/msmith
+objectclass: inetOrgPerson
+objectclass: posixAccount
+objectclass: top
+sn: Smith
+uid: msmith
+uidnumber: 1001
+userpassword: password
+
+# Entry 8: cn=Rick Sanchez,ou=Users,dc=mydemo,dc=run
+dn: cn=Rick Sanchez,ou=Users,dc=mydemo,dc=run
+cn: Rick Sanchez
+gidnumber: 500
+givenname: Rick
+homedirectory: /home/users/rsanchez
+objectclass: inetOrgPerson
+objectclass: posixAccount
+objectclass: top
+sn: Sanchez
+uid: rsanchez
+uidnumber: 1000
+userpassword: password
