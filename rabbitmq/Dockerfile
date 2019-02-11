@@ -33,3 +33,5 @@ WORKDIR /data
 EXPOSE 5672
 # Expose the HTTP API port (15672)
 EXPOSE 15672
+
+CMD ["rabbitmq-server"]

@@ -6,21 +6,21 @@ version: 1
 dn: ou=Groups,dc=mydemo,dc=run
 objectclass: organizationalUnit
 objectclass: top
-ou: Groups
+ou: groups
 
-# Entry for admins: cn=admins,ou=Groups,dc=mydemo,dc=run
-dn: cn=admins,ou=Groups,dc=mydemo,dc=run
-cn: admins
+# Entry for admin: cn=admin,ou=Groups,dc=mydemo,dc=run
+dn: cn=management,ou=Groups,dc=mydemo,dc=run
+cn: management
 gidnumber: 501
-memberuid: jlynch
+memberuid: msmith 
 objectclass: posixGroup
 objectclass: top
 
-# Entry for devs: cn=devs,ou=Groups,dc=mydemo,dc=run
-dn: cn=devs,ou=Groups,dc=mydemo,dc=run
-cn: devs
+# Entry for dev: cn=dev,ou=Groups,dc=mydemo,dc=run
+dn: cn=scientist,ou=Groups,dc=mydemo,dc=run
+cn: scientist
 gidnumber: 500
-memberuid: juser
+memberuid: rsanchez
 objectclass: posixGroup
 objectclass: top
 
@@ -31,7 +31,7 @@ objectclass: top
 ou: Users
 
 # Entry 7: cn=Morty Smith,ou=Users,dc=mydemo,dc=run
-dn: cn=Morty Smith ,ou=Users,dc=mydemo,dc=run
+dn: cn=Morty Smith,ou=Users,dc=mydemo,dc=run
 cn: Morty Smith
 gidnumber: 501
 givenname: Morty

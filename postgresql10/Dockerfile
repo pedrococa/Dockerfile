@@ -9,12 +9,15 @@ USER postgres
 
 # Start the PostgreSQL server and create a PostgreSQL role (superuser) and then create a database `demo` owned by the ``superuser`` role.
 RUN /etc/init.d/postgresql start &&\
-    psql --command "CREATE USER superuser WITH SUPERUSER PASSWORD 'superuser';" &&\
-    createdb -O superuser demo
+    psql --command "ALTER USER postgres WITH PASSWORD 'vaulttest';" &&\
+    psql --command "CREATE DATABASE pgdbdemo;" &&\
+    psql --command "CREATE TABLE wimbledon (id SERIAL PRIMARY KEY, player TEXT, year INTEGER);" pgdbdemo &&\
+    psql --command "INSERT INTO wimbledon (player, year) VALUES ('Murray', 2016), ('Federer', 2017), ('Djokovic',2018);" pgdbdemo 
 
 # Adjust PostgreSQL configuration so that remote connections to the
 # database are possible.
-RUN echo "host all  all    0.0.0.0/0  password" >> /etc/postgresql/10/main/pg_hba.conf
+RUN echo "host  all  all    0.0.0.0/0  password" > /etc/postgresql/10/main/pg_hba.conf
+RUN echo "local all  all               password" >> /etc/postgresql/10/main/pg_hba.conf
 
 # And add ``listen_addresses`` to ``/etc/postgresql/10/main/postgresql.conf``
 RUN echo "listen_addresses='*'" >> /etc/postgresql/10/main/postgresql.conf
