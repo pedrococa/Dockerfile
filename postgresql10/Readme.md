@@ -1,4 +1,4 @@
-# Dockerfile for an Ubuntu 20.04 minimal image with a PostgreSQL server
+# Dockerfile for a PostgreSQL server
 
 ### Build the image in the same directory
 
