@@ -4,6 +4,10 @@
 
 Use the start.sh init script of this repo to use the pcoca/postgres:latest on dockerhub
 
+``` 
+./start.sh
+``` 
+
 ## Or alternatively:
 
 ### Build the image in the same directory
