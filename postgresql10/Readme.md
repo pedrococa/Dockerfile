@@ -27,3 +27,8 @@ psql -h localhost -p 5432 pgdbdemo -U postgres --password
 ``` 
 
 Modify the password on the Dockerfile if needed. 
+
+You would need a postgresql client on your machine, if you don't have one already installed, you can install the postgresql-client package:
+``` 
+sudo apt-get install postgresql-client
+``` 
