@@ -1,6 +1,7 @@
 FROM ubuntu:20.04
 MAINTAINER Pedro Coca <pedro.coca@gmail.com>
-
+ENV TZ=Europe/Madrid
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # Install and PostgreSQL server
 RUN apt-get update && apt-get install -y postgresql postgresql-client postgresql-contrib
 
