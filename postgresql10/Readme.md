@@ -1,4 +1,4 @@
-# Dockerfile for an Ubuntu 18.04 minimal image with a PostgreSQL server
+# Dockerfile for an Ubuntu 20.04 minimal image with a PostgreSQL server
 
 ### Build the image in the same directory
 
@@ -21,7 +21,7 @@ docker network create app-tier --driver bridge
 docker run --name my-postgres -d -p 5432:5432 --network app-tier pcoca/postgres:latest
 ``` 
 
-Once the continer is up and runnig, connect with the psql client:
+Once the container is up and runnig, connect with the psql client:
 ``` 
 psql -h localhost -p 5432 pgdbdemo -U postgres --password
 ``` 
