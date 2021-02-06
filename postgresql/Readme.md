@@ -1,4 +1,4 @@
-# Dockerfile for a PostgreSQL server
+# Dockerfile for a PostgreSQL 12 server (on Ubuntu 20.04)
 
 ### Build the image in the same directory
 
